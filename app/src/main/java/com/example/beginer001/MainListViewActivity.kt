@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import com.example.beginer001.beginerModel.Order
 import com.example.beginer001.beginerModel.OrderItem
 import com.example.beginer001.beginerModel.Product
 import com.orm.SugarRecord
@@ -19,31 +20,13 @@ class MainListViewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_list_view)
 
         addOrder.setOnClickListener {
-            try {
-                var product = Product("Palantin 1")
-                var order = com.example.beginer001.beginerModel.Order("123")
-                var orderItem = OrderItem(250.0f, 10)
-                product.save()
-                order.save()
-                orderItem.save()
-
-            } catch (e: Error) {
-                Log.d("Error:::", e.message)
-            }
-            finally {
-
-            }
-
+            val order = Order()
+            order.save()
         }
 
         getOrder.setOnClickListener {
-            try {
-                var orders = SugarRecord.listAll(Order::class.java)
-                ordersListListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, orders)
-
-            } catch(e: Error) {
-
-            }
+            val orderList = SugarRecord.listAll(Order::class.java)
+            ordersListListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, orderList)
         }
 
 
@@ -58,7 +41,7 @@ class MainListViewActivity : AppCompatActivity() {
         ordersList.add(list1)
         ordersList.add(list2)
 
-        val context = this;
+        val context = this
 
         ordersListListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
         ordersListListView.setOnItemClickListener {_, _, position, _ ->

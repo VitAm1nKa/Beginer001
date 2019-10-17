@@ -3,7 +3,7 @@ package com.example.beginer001.beginerModel;
 import com.orm.SugarRecord;
 import com.orm.dsl.Table;
 
-@Table(name = "Product")
+@Table(name = "t_product")
 public class Product extends SugarRecord {
 
     String title;

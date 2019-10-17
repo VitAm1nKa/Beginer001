@@ -1,36 +1,28 @@
 package com.example.beginer001.beginerModel;
 
 import com.orm.SugarRecord;
+import com.orm.dsl.Table;
 
 import java.util.Date;
+import java.util.List;
 
+@Table(name="t_order_item")
 public class OrderItem extends SugarRecord {
 
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public Date getDateAdded() {
-        return dateAdded;
-    }
-
-    public Date getDateModified() {
-        return dateModified;
-    }
-
     private int orderId;
-
-    float itemPrice;
-    int quantity;
-
-    private Date dateAdded = new Date();
-    private Date dateModified = new Date();
+    public float itemPrice;
+    public int quantity;
 
     public OrderItem() {
     }
 
-    public OrderItem(float itemPrice, int quantity) {
+    public OrderItem(int orderId, float itemPrice, int quantity) {
+        this.orderId = orderId;
         this.itemPrice = itemPrice;
         this.quantity = quantity;
+    }
+
+    public static List<OrderItem> ListByOrderId(int orderId) {
+        return SugarRecord.find(OrderItem.class, "order_id = ?", Integer.toString(orderId));
     }
 }

@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import com.example.beginer001.beginerModel.Order
+import com.example.beginer001.beginerModel.OrderItem
+import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.min
 import kotlin.math.round
@@ -20,7 +23,7 @@ class ListItem(var price: Int = 0, var quantity: Int = 1) {
     }
 }
 
-class List {
+class List(private val orderId: Int? = null) {
     var selectedIndex: Int = -1
     val selectedItem: ListItem?
         get() {
@@ -51,10 +54,27 @@ class List {
             return subTotal
         }
 
+    init {
+        orderId?.let { orderId ->
+            OrderItem.ListByOrderId(orderId).forEach { orderItem ->
+                this.listItem.add(ListItem(orderItem.itemPrice.toInt(), orderItem.quantity))
+            }
+        }
+    }
+
     fun addListItem(listItem: ListItem? = null) {
         if(listItem != null) {
-            this.listItem.add(listItem)
-            this.selectedIndex = this.listItem.size - 1
+            // Create order item. Fill data from listItem
+            orderId?.let {
+                var orderItem = OrderItem(it, listItem.price.toFloat(), listItem.quantity)
+                orderItem.save()
+
+                // After order items saved in DB, create new listItem, fill data from db
+                var newListItem = ListItem(orderItem.itemPrice.toInt(), orderItem.quantity)
+
+                this.listItem.add(newListItem)
+                this.selectedIndex = this.listItem.size - 1
+            }
         }
     }
 
@@ -78,10 +98,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val EXTRA_LIST = "list"
+        const val ORDER_ID = "order_id"
 
-        fun newIntent(context: Context, listId: Int): Intent {
+        fun newIntent(context: Context, orderId: Int): Intent {
             var intent = Intent(context, MainActivity::class.java)
-            intent.putExtra(EXTRA_LIST, listId)
+            intent.putExtra(EXTRA_LIST, orderId)
 
             return intent
         }
@@ -92,10 +113,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var clicks: Int = 0
     private var cartListViewAdapter: CartListViewAdapter? = null
     private var selectedIndex: Int = -1
+    private var orderId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        orderId = intent.getIntExtra(ORDER_ID, 1)
+        // Create new instance of list
+        itemList = List(orderId)
 
         cartListViewAdapter = CartListViewAdapter(this, itemList)
         cartListView.adapter = cartListViewAdapter
@@ -114,6 +140,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun addListItem(listItem: ListItem) {
+        // Add list item to DB
         itemList.addListItem(listItem)
         cartListViewAdapter?.notifyDataSetChanged()
         renderView()

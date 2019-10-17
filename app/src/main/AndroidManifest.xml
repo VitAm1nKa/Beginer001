@@ -14,7 +14,7 @@
         android:name=".appConfig.BeginerAppConfig">
 
         <meta-data android:name="DATABASE" android:value="beginer.db" />
-        <meta-data android:name="VERSION" android:value="12" />
+        <meta-data android:name="VERSION" android:value="13" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example.beginer001.beginerModel" />
 
