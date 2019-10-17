@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lineTotalTextView"
+        android:layout_width="92dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:gravity="right"
+        android:paddingRight="6dp"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:text="99999" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="298dp"
+        android:layout_height="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_toStartOf="@+id/lineTotalTextView"
+        android:layout_toLeftOf="@+id/lineTotalTextView"
+        android:textSize="10sp"
+        tools:text="Наименование товара" />
+
+    <TextView
+        android:id="@+id/quantityTextView"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/titleTextView"
+
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_toStartOf="@+id/delimTextView"
+        android:layout_toLeftOf="@+id/delimTextView"
+        android:gravity="right|center_vertical"
+        android:textSize="20sp"
+        tools:text="999999" />
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="54dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+
+        android:layout_toStartOf="@+id/lineTotalTextView"
+        android:layout_toLeftOf="@+id/lineTotalTextView"
+        android:gravity="right|center_vertical"
+        android:textSize="20sp"
+        tools:text="9999" />
+
+    <TextView
+        android:id="@+id/delimTextView"
+        android:layout_width="16dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/titleTextView"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_toStartOf="@+id/priceTextView"
+        android:layout_toLeftOf="@+id/priceTextView"
+        android:gravity="right|center_vertical"
+        android:text="x"
+        android:textSize="20sp" />
+
+</RelativeLayout>

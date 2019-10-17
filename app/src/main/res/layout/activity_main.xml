@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:id="@+id/cartListView"
+        android:layout_width="401dp"
+        android:layout_height="376dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/operationsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:alpha="80"
+        android:gravity="right|center_vertical"
+        android:paddingRight="12dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonsTableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Operations" />
+
+    <TableLayout
+        android:id="@+id/buttonsTableLayout"
+        android:layout_width="415dp"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/op_7"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_7"
+                android:text="7" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_8"
+                android:text="8" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_9"
+                android:text="9" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="op_add"
+                android:text="Добав"
+                android:textColor="@android:color/holo_green_dark" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_4"
+                android:text="4" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_5"
+                android:text="5" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_6"
+                android:text="6" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="op_quantity"
+                android:text="Кол-во"
+                android:textColor="@android:color/holo_orange_dark" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_1"
+                android:text="1" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_2"
+                android:text="2" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_3"
+                android:text="3" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="op_price"
+                android:text="Цена"
+                android:textColor="@android:color/darker_gray" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="op_clear"
+                android:text="c"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_0"
+                android:text="0" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="di_00"
+                android:text="00" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:onClick="onClick"
+                android:tag="op_remove"
+                android:text="Удалить"
+                android:textColor="@android:color/holo_red_dark" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/totalTextView"
+        android:layout_width="220dp"
+        android:layout_height="36dp"
+        android:gravity="right"
+        android:paddingRight="12dp"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/operationsTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="999999" />
+
+    <TextView
+        android:id="@+id/metaTextView"
+        android:layout_width="164dp"
+        android:layout_height="40dp"
+        android:gravity="center|left|center_vertical"
+        android:paddingLeft="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/totalTextView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/subTotalTextView"
+        android:layout_width="220dp"
+        android:layout_height="18dp"
+        android:gravity="center|right|top|center_vertical"
+        android:paddingRight="12dp"
+        android:text="TextView"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/totalTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/totalTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
