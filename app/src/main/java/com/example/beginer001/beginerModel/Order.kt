@@ -19,7 +19,7 @@ class Order: SugarRecord() {
     }
 
     override fun toString(): String {
-        return "Order #${id}: "
+        return "Order #${id}:"
     }
 
 
